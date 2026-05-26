@@ -8,6 +8,8 @@ node_modules
 Thumbs.db
 npm-debug.log*
 *.log
+backend/oracleJdk-26/
+backend/data/*.db*
 
 # Generated frontend config (Vercel build); use config.example.js as template
 frontend/config.js
