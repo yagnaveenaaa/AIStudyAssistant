@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Study Assistant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <div class="header__brand">
+        <h1 class="header__title">AI Study Assistant</h1>
+        <p class="header__tagline">Enter a topic. Get explanations, examples, and quiz prep.</p>
+      </div>
+      <button type="button" id="history-toggle" class="btn btn--ghost" aria-expanded="false" aria-controls="history-panel">
+        History
+      </button>
+    </header>
+
+    <aside id="history-panel" class="history-panel" hidden>
+      <div class="history-panel__head">
+        <h2 class="history-panel__title">Past topics</h2>
+        <button type="button" id="history-close" class="btn btn--ghost btn--sm" aria-label="Close history">Close</button>
+      </div>
+      <ul id="history-list" class="history-list"></ul>
+      <p id="history-empty" class="history-empty" hidden>No past sessions yet.</p>
+    </aside>
+
+    <main class="main">
+      <section class="search-card">
+        <form id="study-form" class="study-form">
+          <label class="field" for="topic">
+            <span class="field__label">Topic</span>
+            <input
+              type="text"
+              id="topic"
+              name="topic"
+              class="field__input"
+              placeholder="e.g. Photosynthesis, Newton's laws"
+              required
+              minlength="3"
+              maxlength="200"
+              autocomplete="off"
+            />
+          </label>
+
+          <div class="study-form__options">
+            <label class="field field--inline" for="level">
+              <span class="field__label">Level</span>
+              <select id="level" name="level" class="field__select">
+                <option value="beginner">Beginner</option>
+                <option value="intermediate">Intermediate</option>
+                <option value="advanced">Advanced</option>
+              </select>
+            </label>
+            <label class="field field--inline" for="focus">
+              <span class="field__label">Focus</span>
+              <select id="focus" name="focus" class="field__select">
+                <option value="overview">Overview</option>
+                <option value="exam prep">Exam prep</option>
+                <option value="quick recap">Quick recap</option>
+              </select>
+            </label>
+          </div>
+
+          <button type="submit" id="submit-btn" class="btn btn--primary">
+            Generate study guide
+          </button>
+        </form>
+      </section>
+
+      <div id="status" class="status" role="status" aria-live="polite" hidden></div>
+
+      <article id="results" class="results" hidden></article>
+    </main>
+  </div>
+
+  <script src="/config.js"></script>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+node_modules/
+node_modules
+.env
+.env.local
+*.db
+*.db-journal
+.DS_Store
+Thumbs.db
+npm-debug.log*
+*.log
+
+# Generated frontend config (Vercel build); use config.example.js as template
+frontend/config.js

@@ -1,0 +1,27 @@
+# Render Blueprint — deploy backend + frontend together (single Web Service)
+# Docs: https://render.com/docs/blueprint-spec
+services:
+  - type: web
+    name: ai-study-assistant
+    runtime: node
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: OPENAI_MODEL
+        value: gpt-4o
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: CORS_ORIGIN
+        sync: false
+      - key: PUBLIC_API_BASE
+        value: ""
+      - key: DATABASE_PATH
+        value: /var/data/study.db
+    disk:
+      name: study-data
+      mountPath: /var/data
+      sizeGB: 1
